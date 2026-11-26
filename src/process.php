@@ -1,21 +1,27 @@
 <?php
 
+// Підключення Composer
+require __DIR__ . '/../vendor/autoload.php';
+
+// Підключення бібліотеки Respect/Validation
+use Respect\Validation\Validator as v;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Отримання даних із форми
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
 
     // Масив для помилок
     $errors = [];
 
-    // Перевірка імені
-    if (trim($name) === '') {
+    // Перевірка імені через бібліотеку
+    if (!v::stringType()->notEmpty()->validate($name)) {
         $errors[] = "Поле 'Ім'я' не може бути порожнім.";
     }
 
-    // Перевірка email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // Перевірка email через бібліотеку
+    if (!v::email()->validate($email)) {
         $errors[] = "Введіть коректний email.";
     }
 

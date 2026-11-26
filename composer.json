@@ -12,5 +12,7 @@
             "email": "solodkanatala156@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "respect/validation": "^2.5"
+    }
 }
