@@ -1,0 +1,16 @@
+{
+    "name": "lab14_forms/forms",
+    "description": "PHP Forms Laboratory Work 14",
+    "autoload": {
+        "psr-4": {
+            "Lab14Forms\\Forms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Natali",
+            "email": "solodkanatala156@gmail.com"
+        }
+    ],
+    "require": {}
+}
